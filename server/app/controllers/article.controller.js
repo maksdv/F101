@@ -3,7 +3,7 @@ const Article = require("../models/article.model.js");
 // Create and Save a new Article
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.content) {
+  if (!req.body) {
     return res.status(400).send({
       message: "Article content can not be empty"
     });
@@ -12,7 +12,7 @@ exports.create = (req, res) => {
   // Create a Article
   const article = new Article({
     title: req.body.title || "Untitled Article",
-    content: req.body.content
+    description: req.body.content
   });
 
   // Save Article in the database
