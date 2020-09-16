@@ -10,7 +10,7 @@
     "RestAPI",
     "MongoDB",
     "Mongoose",
-    "Notes"
+    "Articles"
   ],
   "dependencies": {
     "body-parser": "^1.18.3",
