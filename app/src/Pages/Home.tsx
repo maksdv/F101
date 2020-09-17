@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { get } from "../services/api";
 import { List } from "../components/Articles/List";
 import { AddButton } from "../components/AddButton";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export const Home: React.FC = () => {
   const [data, setData] = useState([]);

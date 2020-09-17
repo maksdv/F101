@@ -11,7 +11,11 @@ export const ArticleItem: React.FC<ArticleProps> = ({
 }) => (
   <div className="article">
     <p>{title}</p>
-    <p>{description}</p>
-    <p>{price}</p>
+    <p>
+      {description.length > 20
+        ? `${description.substr(0, 20)}...`
+        : description}
+    </p>
+    <p>{price}€</p>
   </div>
 );

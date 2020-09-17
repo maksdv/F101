@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent } from "react";
 import { FormInput } from "../components/Form/Input/Input";
 import Button from "../components/Button";
 import { setArticle } from "../services/api";
+import { BackButton } from "../components/BackButton";
 
 export const AddArticle: React.FC = () => {
   const [title, setTitle] = useState<string>("");
@@ -16,23 +17,36 @@ export const AddArticle: React.FC = () => {
 
   const handleSubmit = async () => {
     const resp = await setArticle({ title, description, price });
-    console.log(resp);
+    if (resp.message) {
+      alert("Sorry, but something went wrong.");
+    } else {
+      alert(`${resp.title} has been succesfully created.`);
+      clearState();
+    }
   };
 
   const anyInputEmpty = () => {
     return title !== "" && description !== "" && price !== "";
   };
 
+  const clearState = () => {
+    setTitle("");
+    setDescription("");
+    setPrice("");
+  };
+
   return (
     <div className="addArticleContainer">
+      <BackButton />
       <div className="formContainer">
         <FormInput
-          placeholder={"Name of the article"}
+          placeholder={"Name the article"}
           labelText="Title"
           animate="right"
           onChange={(e) => {
             handleEvent(e, setTitle);
           }}
+          value={title}
         />
         <FormInput
           placeholder={"Describe the article"}
@@ -40,14 +54,16 @@ export const AddArticle: React.FC = () => {
           onChange={(e) => {
             handleEvent(e, setDescription);
           }}
+          value={description}
         />
         <FormInput
-          placeholder={"Price"}
+          placeholder={"Set price"}
           labelText="Price"
           type="number"
           onChange={(e) => {
             handleEvent(e, setPrice);
           }}
+          value={price}
         />
         <Button
           type="submit"

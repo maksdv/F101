@@ -22,7 +22,6 @@ const App: React.FC<NavigationProps> = () => {
         <Route path="/add-article" exact component={AddArticle} />
         <Redirect from="/" to="/home" exact />
       </Switch>
-      <Footer />
     </Router>
   );
 };

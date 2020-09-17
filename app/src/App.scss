@@ -3,17 +3,24 @@
 $break-small: 568px;
 $break-medium: 868px;
 $break-large: 1200px;
+$bodyHeight: 80vh;
 
 #root {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .emptyContainer {
+    height: $bodyHeight;
+  }
   .header {
+    width: 100%;
     height: 15vh;
-
-    @media screen and (max-width: $break-small) {
-      height: 10vh;
-    }
+    background-color: $black;
   }
   .footer {
     height: 5vh;
+    width: 100%;
+    background-color: $black;
   }
 
   .addArticleContainer {
@@ -21,7 +28,8 @@ $break-large: 1200px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    height: $bodyHeight;
+
     .formContainer {
       border: 1px solid;
       padding: 5vw;
@@ -29,27 +37,43 @@ $break-large: 1200px;
     }
   }
 }
+.container {
+  height: $bodyHeight;
+  .listContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 30vw);
+    column-gap: 2vw;
+    row-gap: 2vh;
+    margin: 5vh 0;
+    grid-auto-rows: 20vh;
 
-.listContainer {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  column-gap: 2vw;
-  row-gap: 2vh;
+    @media screen and (max-width: $break-medium) {
+      grid-template-columns: repeat(2, 45vw);
+    }
 
-  @media screen and (max-width: $break-medium) {
-    grid-template-columns: repeat(2, auto);
-  }
+    @media screen and (max-width: $break-small) {
+      grid-template-columns: 100%;
+    }
+    .article {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      background-color: $sky-blue;
+      text-align: left;
+      padding: 1rem 0;
+      align-items: center;
+      padding: 0 1%;
 
-  @media screen and (max-width: $break-small) {
-    grid-template-columns: auto;
-  }
-  .article {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: $sky-blue;
-    text-align: left;
-    padding: 1rem 0;
-    align-items: center;
+      .key {
+        color: #fff;
+        text-transform: capitalize;
+        text-decoration-line: underline;
+      }
+      .value {
+        font-weight: bold;
+        text-transform: capitalize;
+        overflow: hidden;
+      }
+    }
   }
 }
