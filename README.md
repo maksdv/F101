@@ -1,5 +1,5 @@
 # F101 
-Para arrancar el proyecto:
+# Para arrancar el proyecto:
 Bajamos el repositorio: # git clone <url del repo>
 Entramos en el directorio del proyecto: # cd F101
   Back ->
