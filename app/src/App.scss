@@ -4,6 +4,32 @@ $break-small: 568px;
 $break-medium: 868px;
 $break-large: 1200px;
 
+#root {
+  .header {
+    height: 15vh;
+
+    @media screen and (max-width: $break-small) {
+      height: 10vh;
+    }
+  }
+  .footer {
+    height: 5vh;
+  }
+
+  .addArticleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    .formContainer {
+      border: 1px solid;
+      padding: 5vw;
+      background-color: $grey;
+    }
+  }
+}
+
 .listContainer {
   display: grid;
   grid-template-columns: repeat(3, auto);

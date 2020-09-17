@@ -15,7 +15,9 @@ const Button: FC<ButtonProps> = ({ disabled = false, ...props }) => {
       style={{ cursor: !disabled ? "pointer" : "not-allowed" }}
       className={classname}
       {...props}
-    />
+    >
+      Create
+    </button>
   );
 };
 
