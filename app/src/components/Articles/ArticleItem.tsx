@@ -1,4 +1,3 @@
-import { get } from "../../services/api";
 import React from "react";
 import { Article } from "../../model/Article";
 

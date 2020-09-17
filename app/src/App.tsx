@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import { Home } from "./Pages/Home";
 import { Header } from "./components/Layout/Header";
-import { Footer } from "./components/Layout/Footer";
 import { AddArticle } from "./Pages/AddArticle";
 
 type NavigationProps = {};
