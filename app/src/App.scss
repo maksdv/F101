@@ -1,0 +1,29 @@
+@import "./style/colors";
+
+$break-small: 568px;
+$break-medium: 868px;
+$break-large: 1200px;
+
+.listContainer {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 2vw;
+  row-gap: 2vh;
+
+  @media screen and (max-width: $break-medium) {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  @media screen and (max-width: $break-small) {
+    grid-template-columns: auto;
+  }
+  .article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: $sky-blue;
+    text-align: left;
+    padding: 1rem 0;
+    align-items: center;
+  }
+}
