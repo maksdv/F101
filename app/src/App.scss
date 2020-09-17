@@ -47,7 +47,7 @@ $bodyHeight: 80vh;
     }
 
     @media screen and (max-width: $break-small) {
-      grid-template-columns: 100%;
+      grid-template-columns: 80vw;
     }
     .article {
       display: flex;
