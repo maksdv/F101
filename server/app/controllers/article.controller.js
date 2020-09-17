@@ -3,41 +3,43 @@ const Article = require("../models/article.model.js");
 // Create and Save a new Article
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body) {
+  if (!req.body.title) {
     return res.status(400).send({
-      message: "Article content can not be empty"
+      message: "Article can not be empty",
     });
   }
-
-  // Create a Article
   const article = new Article({
-    title: req.body.title || "Untitled Article",
-    description: req.body.content
+    title: req.body.title,
+    description: req.body.description || "Description",
+    price: req.body.price || "0",
   });
 
   // Save Article in the database
   article
     .save()
-    .then(data => {
+    .then((data) => {
       res.send(data);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Article."
+          err.message || "Some error occurred while creating the Article.",
       });
     });
+
+  // Create a Article
 };
 
 // Retrieve and return all articles from the database.
 exports.findAll = (req, res) => {
   Article.find()
-    .then(articles => {
+    .then((articles) => {
       res.send(articles);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving articles."
+        message:
+          err.message || "Some error occurred while retrieving articles.",
       });
     });
 };
